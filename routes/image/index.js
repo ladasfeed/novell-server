@@ -18,4 +18,9 @@ router.get("/", async (req, res) => {
   res.status(200).json(image);
 });
 
+router.delete("/", async (req, res) => {
+  await ImageScheme.deleteMany();
+  res.status(201).send();
+});
+
 module.exports = router;
