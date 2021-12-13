@@ -4,6 +4,7 @@ const port = 4000;
 const mongoose = require("mongoose");
 const cors = require("cors");
 const ImageService = require("./routes/image");
+const AudioService = require("./routes/audio");
 const bodyParser = require("body-parser");
 
 mongoose.connect(
@@ -19,6 +20,7 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
 
 app.use("/image", ImageService);
+app.use("/audio", AudioService);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
