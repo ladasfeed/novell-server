@@ -18,6 +18,7 @@ mongoose.connect(
 
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cors());
+app.use(express.static("public"));
 
 app.use("/image", ImageService);
 app.use("/audio", AudioService);
