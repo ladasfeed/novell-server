@@ -5,8 +5,10 @@ const AudioScheme = require("./scheme");
 const fs = require("fs");
 
 router.post("/", async (req, res) => {
-  const { value, name } = req.body;
-  const image = await ImageScheme.create({});
+  const { value, name, type } = req.body;
+  const image = await ImageScheme.create({
+    type,
+  });
 
   const buffer = Buffer.from(value.split("base64,")[1], "base64");
   const path = `/imageStorage/${image._id}.png`;
@@ -23,8 +25,9 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/", async (req, res) => {
-  const image = await ImageScheme.find();
-  console.log(image);
+  /** @type background | character */
+  const { type } = req.query;
+  const image = await ImageScheme.find().where("type").equals(type);
   res.status(200).json(image);
 });
 
