@@ -15,7 +15,6 @@ router.post("/", async (req, res) => {
     path,
   });
 
-  console.log(audio);
   res.status(201).json({
     path,
     audio: audio._id,
