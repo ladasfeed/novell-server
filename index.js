@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const ImageService = require("./routes/image");
 const AudioService = require("./routes/audio");
+const NovellService = require("./routes/novell");
 const bodyParser = require("body-parser");
 
 mongoose.connect(
@@ -22,6 +23,7 @@ app.use(express.static("public"));
 
 app.use("/image", ImageService);
 app.use("/audio", AudioService);
+app.use("/novell", NovellService);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
