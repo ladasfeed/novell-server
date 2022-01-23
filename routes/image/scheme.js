@@ -8,6 +8,7 @@ const imageScheme = new Schema(
       type: String,
       enum: ["character", "background"],
     },
+    novell_id: String,
   },
   { versionKey: false }
 );

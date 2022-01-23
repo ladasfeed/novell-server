@@ -3,12 +3,12 @@ const router = express.Router();
 const NovellSchema = require("./scheme");
 
 router.post("/", async (req, res) => {
-  const { chapters, characters, branches } = req.body;
-  console.log(123);
+  const { chapters, characters, branches, name } = req.body;
   const novell = await NovellSchema.create({
     chapters,
     characters,
     branches,
+    name,
   });
 
   res.status(201).json({

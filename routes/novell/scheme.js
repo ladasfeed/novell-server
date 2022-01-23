@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 const novellSchema = new Schema(
   {
+    name: String,
     characters: Array,
     branches: Array,
     chapters: Schema.Types.Mixed,
